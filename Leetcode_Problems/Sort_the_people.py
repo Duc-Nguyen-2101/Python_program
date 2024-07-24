@@ -7,7 +7,7 @@ class Solution:
                     names[j], names[j+1] = names[j+1], names[j]
                     heights[j], heights[j+1] = heights[j+1], heights[j]
         
-        return heights
+        return names
     
 # names = ["IEO","Sgizfdfrims","QTASHKQ","Vk","RPJOFYZUBFSIYp","EPCFFt","VOYGWWNCf","WSpmqvb"]
 # names = ["1","2","3","4","5","6","7","8"]

@@ -28,6 +28,13 @@
 # The result of division is always a float
 10.0 / 3  # => 3.3333333333333335
 
+####################################################
+## Use case modulo:
+# 1 Finding remainders
+# 2 Compatibility with Loops
+
+####################################################
+
 # Modulo operation
 7 % 3   # => 1
 # i % j have the same sign as j, unlike C

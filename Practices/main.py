@@ -27,7 +27,7 @@ class Solution:
     def sortPeople_BubbleSort(self, names: list[str], heights: list[int]) -> list[str]:
         n : int = len(heights)
         for i in range(n):
-            for j in range(0, n-i-1):
+            for j in range(0, n-1-i):
                 if heights[j] < heights[j+1]:
                     heights[j], heights[j+1] = heights[j+1], heights[j]
                     names[j], names[j+1] = names[j+1], names[j]
@@ -49,14 +49,19 @@ class Solution:
 
         return names
     
+
+# Test solutions
+
+
 # names = ["Mary","John","Emma"]
 # heights = [180,165,170]
 
-# names = ["Alice","Bob","Bob"]
-# heights = [155,185,150]
+names = ["Alice","Bob","Bob"]
+heights = [155,185,150]
 
-names = ["IEO","Sgizfdfrims","QTASHKQ","Vk","RPJOFYZUBFSIYp","EPCFFt","VOYGWWNCf","WSpmqvb"]
-heights = [17233,32521,14087,42738,46669,65662,43204,8224]
+# names = ["IEO","Sgizfdfrims","QTASHKQ","Vk","RPJOFYZUBFSIYp","EPCFFt","VOYGWWNCf","WSpmqvb"]
+# names =   ["1", "2",   "3", "4",    "5",  "6",  "7", "8"]
+# heights = [17233,32521,14087,42738,46669,65662,43204,8224]
 
 Test = Solution()
-print(Test.sortPeople_SelectionSort(names, heights))
+print(Test.sortPeople_insertionSort(names, heights))
