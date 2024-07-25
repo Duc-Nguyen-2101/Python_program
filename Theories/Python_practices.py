@@ -371,13 +371,206 @@
 
 ####################################################
 
-ret = []
-for val in range(1000,3001):
-    s = str(val)
-    if (int(s[0])%2==0) and (int(s[1])%2==0) and (int(s[2])%2==0) and (int(s[3])%2==0):
-        ret.append(str(val))
+# ret = []
+# for val in range(1000,3001):
+#     s = str(val)
+#     if (int(s[0])%2==0) and (int(s[1])%2==0) and (int(s[2])%2==0) and (int(s[3])%2==0):
+#         ret.append(str(val))
 
-print(",".join(ret))
+# print(",".join(ret))
+
+
+####################################################
+# Question 13
+# Level 2
+
+# Question: Write a program that accepts a sentence and calculate the number of letters and digits. 
+# Suppose the following input is supplied to the program: hello world! 123 
+# Then, the output should be: LETTERS 10 DIGITS 3
+
+# Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# Solution:
+# s = input()
+# d={"DIGITS":0, "LETTERS":0}
+# for c in s:
+#     if c.isdigit():
+#         d["DIGITS"]+=1
+#     elif c.isalpha():
+#         d["LETTERS"]+=1
+#     else:
+#         pass
+# print("LETTERS", d["LETTERS"])
+# print("DIGITS", d["DIGITS"])
+
+####################################################
+
+# input_str = input()
+# s = [str(x) for x in input_str.split(' ')]
+
+# character_count = 0
+# digit_cout = 0
+# specical_count = 0
+
+# for characters in s:
+#     for x in range(0, len(characters)):
+#         if characters[x].isalpha():
+#             character_count += 1
+#         elif characters[x].isdigit():
+#             digit_cout += 1
+#         else:
+#             specical_count +=1
+                   
+# print("LETTERS " + str(character_count))
+# print("DIGITS " + str(digit_cout))
+# print("SPECIAL CHARACTER " + str(specical_count))
+
+
+####################################################
+# Question 14
+# Level 2
+
+# Question: Write a program that accepts a sentence and calculate the number of upper case letters and lower case letters. 
+# Suppose the following input is supplied to the program: Hello world! 
+# Then, the output should be: UPPER CASE 1 LOWER CASE 9
+
+# Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# Solution:
+# s = input()
+# d={"UPPER CASE":0, "LOWER CASE":0}
+# for c in s:
+#     if c.isupper():
+#         d["UPPER CASE"]+=1
+#     elif c.islower():
+#         d["LOWER CASE"]+=1
+#     else:
+#         pass
+# print("UPPER CASE", d["UPPER CASE"])
+# print("LOWER CASE", d["LOWER CASE"])
+####################################################
+
+
+# s = input()
+# ret = {'UPPER CASE' : 0, 'LOWER CASE' : 0}
+
+# print(len(s))
+# for i in range(0, len(s)):
+#     if s[i].isupper():
+#         ret['UPPER CASE'] += 1
+#     elif s[i].islower():
+#         ret['LOWER CASE'] += 1
+#     else:
+#         None
+
+# print("UPPER", ret["UPPER CASE"])
+# print("LOWER", ret["LOWER CASE"])
+
+####################################################
+# Question 15
+# Level 2
+
+# Question: Write a program that computes the value of a+aa+aaa+aaaa with a given digit as the value of a. 
+# Suppose the following input is supplied to the program: 9 Then, the output should be: 11106
+
+# Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# Solution:
+# a = input()
+# n1 = int( "%s" % a )
+# n2 = int( "%s%s" % (a,a) )
+# n3 = int( "%s%s%s" % (a,a,a) )
+# n4 = int( "%s%s%s%s" % (a,a,a,a) )
+# print(n1+n2+n3+n4)
+####################################################
+
+# num = input()
+# ret = 0
+# a_s = num 
+# aa_s = num * 2
+# aaa_s = num * 3
+# aaaa_s = num * 4
+
+# ret = int(a_s) + int(aa_s) + int(aaa_s) + int(aaaa_s)
+
+# print(ret)
+
+
+####################################################
+# Question 16
+# Level 2
+
+# Question: Use a list comprehension to square each odd number in a list. The list is input by a sequence of comma-separated numbers. 
+# Suppose the following input is supplied to the program: 1,2,3,4,5,6,7,8,9 
+# Then, the output should be: 1,3,5,7,9
+
+# Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# NOTE: comprehension to square is like this [str(x) for x in s.split(' ')] 
+
+# Solution:
+# values = input()
+# numbers = [x for x in values.split(",") if int(x)%2!=0]
+# print(",".join(numbers))
+####################################################
+
+# s = input()
+# output_str = [str(x) for x in s.split(',') if int(x) % 2]     
+# print(",".join(output_str))
+# print(output_str)
+
+####################################################
+# Question 17
+# Level 2
+
+# Question: Write a program that computes the net amount of a bank account based a transaction log from console input. 
+# The transaction log format is shown as following: D 100 W 200
+# D means deposit while W means withdrawal. 
+# Suppose the following input is supplied to the program: D 300 D 300 W 200 D 100 
+# Then, the output should be: 500
+
+# Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# Solution:
+# netAmount = 0
+# while True:
+#     s = input()
+#     if not s:
+#         break
+#     values = s.split(" ")
+#     operation = values[0]
+#     amount = int(values[1])
+#     if operation=="D":
+#         netAmount+=amount
+#     elif operation=="W":
+#         netAmount-=amount
+#     else:
+#         pass
+# print(netAmount)
+
+
+# NOTE: Assume in real life when the user enter amount once for each deposit and withdraw
+# Example: 
+#       1st: Deposit 100 - Total 100
+#       2nd: Deposit 100 - Total 200
+#       3rd: Withdraw 200 - Total 0
+####################################################
+
+log = input()
+digits = [str(x) for x in log.split(' ') if x.isdigit()]
+modes = [str(x) for x in log.split(' ') if x.isalpha()]
+
+total = 0
+
+for i in range(0, len(modes)):
+    if modes[i] == 'D':
+        total += int(digits[i])
+    elif modes[i] == 'W':
+        total += int(digits[i])
+
+print(total)
+
+
 
 
 
