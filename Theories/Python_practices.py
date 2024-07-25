@@ -10,6 +10,14 @@
 
 # Hints: Consider use range(#begin, #end) method
 
+# Solution:
+
+# l=[]
+# for i in range(2000, 3201):
+#     if (i%7==0) and (i%5!=0):
+#         l.append(str(i))
+
+# print(','.join(l))
 ####################################################
 
 # for i in range(2000,3201):
@@ -29,6 +37,15 @@
 
 
 # Note: this is recursive algorithm use to calculated the fractional of a number
+# Solution:
+
+# def fact(x):
+#     if x == 0:
+#         return 1
+#     return x * fact(x - 1)
+
+# x=int(input())
+# print(fact(x))
 ####################################################
 # def fact(x):
 #     if x == 0:
@@ -48,6 +65,14 @@
 # Suppose the following input is supplied to the program: 8 Then, the output should be: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64}
 
 # Hints: In case of input data being supplied to the question, it should be assumed to be a console input. Consider use dict()
+# Solution:
+
+# n=int(input())
+# d=dict()
+# for i in range(1,n+1):
+#     d[i]=i*i
+
+# print(d)
 ####################################################
 
 # def dicGen(x):
@@ -71,6 +96,14 @@
 # Then, the output should be: ['34', '67', '55', '33', '12', '98'] ('34', '67', '55', '33', '12', '98')
 
 # Hints: In case of input data being supplied to the question, it should be assumed to be a console input. tuple() method can convert list to tuple
+
+# Solution:
+
+# values=input()
+# l=values.split(",")
+# t=tuple(l)
+# print(l)
+# print(t)
 ####################################################
 # import random
 
@@ -157,3 +190,194 @@
 # it should be assumed to be a console input.
 
 ####################################################
+# import math
+
+# def squareRoot(D : int):
+#     Q : int = 0
+#     C : int = 50
+#     H : int = 30
+#     Q = int(round((math.sqrt((2*C*D)/H)) , 0))
+#     return Q 
+
+# print(squareRoot(100), squareRoot(150), squareRoot(180))
+
+####################################################
+# Question 7
+# Level 2
+
+# Question: Write a program which takes 2 digits, X,Y as input and generates a 2-dimensional array. 
+# The element value in the i-th row and j-th column of the array should be i*j. Note: i=0,1.., X-1; j=0,1,¡­Y-1. 
+# Example Suppose the following inputs are given to the program: 3,5 
+# Then, the output of the program should be: [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8]]
+
+# Hints: Note: In case of input data being supplied to the question, it should be assumed to be a console input in a comma-separated form.
+
+# Solution:
+
+# input_str = input()
+# dimensions=[int(x) for x in input_str.split(',')]
+# rowNum=dimensions[0]
+# colNum=dimensions[1]
+# multilist = [[0 for col in range(colNum)] for row in range(rowNum)]
+
+# for row in range(rowNum):
+#     for col in range(colNum):
+#         multilist[row][col]= row*col
+
+# print(multilist)
+####################################################
+
+# def arrayGen(X:int, Y:int):
+#     ret = []
+#     for i in range(0,X):
+#         ret.append([])
+#         for j in range(0,Y):
+#             ret[i].append(i*j)
+#     return ret
+
+# print(arrayGen(3,5))
+
+
+####################################################
+# Question 8
+# Level 2
+
+# Question: Write a program that accepts a comma separated sequence of words as input and prints the words in a comma-separated sequence 
+# after sorting them alphabetically. Suppose the following input is supplied to the program: without,hello,bag,world 
+# Then, the output should be: bag,hello,without,world
+
+# Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# Solution:
+
+# items=[x for x in input().split(',')]
+# items.sort()
+# print(','.join(items))
+####################################################
+
+# input_str = input()
+# output_str=[str(x) for x in input_str.split(',')]
+
+# str_sort = sorted(output_str)
+# print(str_sort)
+
+####################################################
+# Question 9
+# Level 2
+
+# Question£º Write a program that accepts sequence of lines as input and prints the lines after making all characters in the sentence capitalized. 
+# Suppose the following input is supplied to the program: Hello world Practice makes perfect 
+# Then, the output should be: HELLO WORLD PRACTICE MAKES PERFECT
+
+# Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# Solution:
+
+# lines = []
+# while True:
+#     s = input()
+#     if s:
+#         lines.append(s.upper())
+#     else:
+#         break;
+
+# for sentence in lines:
+#     print(sentence)
+####################################################
+
+# input_str = input()
+# print(input_str.upper())
+
+####################################################
+# Question 10
+# Level 2
+
+# Question: Write a program that accepts a sequence of whitespace separated words as input 
+# and prints the words after removing all duplicate words and sorting them alphanumerically. 
+# Suppose the following input is supplied to the program: hello world and practice makes perfect and hello world again 
+# Then, the output should be: again and hello makes perfect practice world
+
+# Hints: In case of input data being supplied to the question, it should be assumed to be a console input. 
+# We use set container to remove duplicated data automatically and then use sorted() to sort the data.
+
+# Solution:
+# s = input()
+# words = [word for word in s.split(" ")]
+# print(" ".join(sorted(list(set(words)))))
+####################################################
+
+# input_str = input()
+# output_str = str(input_str).split(' ')
+# ret = []
+
+# for i in range(0, len(output_str)-1):
+#     if output_str[i] not in ret:
+#         ret.append(output_str[i])
+
+
+# print(' '.join(ret))
+
+####################################################
+# Question 11
+# Level 2
+
+# Question: Write a program which accepts a sequence of comma separated 4 digit binary numbers as its input and 
+# then check whether they are divisible by 5 or not. 
+# The numbers that are divisible by 5 are to be printed in a comma separated sequence. 
+# Example: 0100,0011,1010,1001 Then the output should be: 1010 
+# Notes: Assume the data is input by console.
+
+# Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# Solution:
+# value = []
+# items=[x for x in input().split(',')]
+# for p in items:
+#     intp = int(p, 2)
+#     if not intp%5:
+#         value.append(p)
+
+# print(','.join(value))
+####################################################
+
+# num = input()
+# num_bit = [str(x) for x in num.split(',')]
+# ret = []
+
+# for x in num_bit:
+#     value = int(x, 2)
+#     if not value%5:
+#         ret.append(x)
+
+# print(','.join(ret))
+
+
+####################################################
+# Question 12
+# Level 2
+
+# Question: Write a program, which will find all such numbers between 1000 and 3000 (both included) such that each digit of the number is an even number. 
+# The numbers obtained should be printed in a comma-separated sequence on a single line.
+
+# Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# Solution:
+# values = []
+# for i in range(1000, 3001):
+#     s = str(i)
+#     if (int(s[0])%2==0) and (int(s[1])%2==0) and (int(s[2])%2==0) and (int(s[3])%2==0):
+#         values.append(s)
+# print(",".join(values))
+
+####################################################
+
+ret = []
+for val in range(1000,3001):
+    s = str(val)
+    if (int(s[0])%2==0) and (int(s[1])%2==0) and (int(s[2])%2==0) and (int(s[3])%2==0):
+        ret.append(str(val))
+
+print(",".join(ret))
+
+
+
