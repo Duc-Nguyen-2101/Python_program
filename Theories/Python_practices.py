@@ -556,21 +556,104 @@
 #       3rd: Withdraw 200 - Total 0
 ####################################################
 
-log = input()
-digits = [str(x) for x in log.split(' ') if x.isdigit()]
-modes = [str(x) for x in log.split(' ') if x.isalpha()]
+# ret = 0
+# while True:
+#     log = input()
+#     if not log:
+#         break
+#     values = log.split(' ')
+#     if values[0] == 'D':
+#         ret += int(values[1])
+#     elif values[0] == 'W':
+#         ret -= int(values[1])
+#     else:
+#         pass
 
-total = 0
-
-for i in range(0, len(modes)):
-    if modes[i] == 'D':
-        total += int(digits[i])
-    elif modes[i] == 'W':
-        total += int(digits[i])
-
-print(total)
-
-
-
+# print(ret)
 
 
+####################################################
+
+# Question 18
+# Level 3
+
+# Question: A website requires the users to input username and password to register. 
+# Write a program to check the validity of password input by users. 
+# Following are the criteria for checking the password:
+
+# At least 1 letter between [a-z]
+# At least 1 number between [0-9]
+# At least 1 letter between [A-Z]
+# At least 1 character from [$#@]
+# Minimum length of transaction password: 6
+# Maximum length of transaction password: 12 Your program should accept a sequence of comma separated passwords 
+# and will check them according to the above criteria. 
+# Passwords that match the criteria are to be printed, each separated by a comma. 
+# Example If the following passwords are given as input to the program: "ABd1234@1","aF1#","2w3E*","2We3345"
+# Then, the output of the program should be: "ABd1234@1"
+# Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# Solution:
+# import re
+# value = []
+# items=[x for x in input().split(',')]
+# for p in items:
+#     if len(p)<6 or len(p)>12:
+#         continue
+#     else:
+#         pass
+#     if not re.search("[a-z]",p):
+#         continue
+#     elif not re.search("[0-9]",p):
+#         continue
+#     elif not re.search("[A-Z]",p):
+#         continue
+#     elif not re.search("[$#@]",p):
+#         continue
+#     elif re.search("\s",p):
+#         continue
+#     else:
+#         pass
+#     value.append(p)
+# print(",".join(value))
+####################################################
+
+ret = ''
+password = input()       
+size = len(password)
+if size < 12 and size > 6:
+    for c in password:
+        if c in '$#@':
+            ret = ret + c
+            continue
+        elif c.isalpha():
+            if c.isupper() or c.islower():
+                ret = ret + c
+                continue
+        elif c.isdigit():
+            ret = ret + c
+            continue
+        else:
+            pass
+else:
+    pass
+
+if size == len(ret):
+    print(ret)
+else:
+    pass
+
+####################################################
+# Question 19
+# Level 3
+
+# Question: You are required to write a program to sort the (name, age, height) tuples by ascending order where name is string, age and height are numbers.
+# The tuples are input by console. The sort criteria is: 1: Sort based on name; 2: Then sort based on age; 3: 
+# Then sort by score. The priority is that name > age > score. 
+# If the following tuples are given as input to the program: Tom,19,80 John,20,90 Jony,17,91 Jony,17,93 Json,21,85 
+# Then, the output of the program should be: [('John', '20', '90'), ('Jony', '17', '91'), ('Jony', '17', '93'), ('Json', '21', '85'), ('Tom', '19', '80')]
+
+# Hints: In case of input data being supplied to the question, it should be assumed to be a console input. We use itemgetter to enable multiple sort keys.
+
+# Solutions: from operator import itemgetter, attrgetter
+####################################################
