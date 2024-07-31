@@ -618,30 +618,30 @@
 # print(",".join(value))
 ####################################################
 
-ret = ''
-password = input()       
-size = len(password)
-if size < 12 and size > 6:
-    for c in password:
-        if c in '$#@':
-            ret = ret + c
-            continue
-        elif c.isalpha():
-            if c.isupper() or c.islower():
-                ret = ret + c
-                continue
-        elif c.isdigit():
-            ret = ret + c
-            continue
-        else:
-            pass
-else:
-    pass
+# ret = ''
+# password = input()       
+# size = len(password)
+# if size < 12 and size > 6:
+#     for c in password:
+#         if c in '$#@':
+#             ret = ret + c
+#             continue
+#         elif c.isalpha():
+#             if c.isupper() or c.islower():
+#                 ret = ret + c
+#                 continue
+#         elif c.isdigit():
+#             ret = ret + c
+#             continue
+#         else:
+#             pass
+# else:
+#     pass
 
-if size == len(ret):
-    print(ret)
-else:
-    pass
+# if size == len(ret):
+#     print(ret)
+# else:
+#     pass
 
 ####################################################
 # Question 19
@@ -656,4 +656,40 @@ else:
 # Hints: In case of input data being supplied to the question, it should be assumed to be a console input. We use itemgetter to enable multiple sort keys.
 
 # Solutions: from operator import itemgetter, attrgetter
+# l = []
+# while True:
+#     s = input()
+#     if not s:
+#         break
+#     l.append(tuple(s.split(",")))
+
+# print(sorted(l, key=itemgetter(0,1,2)))
 ####################################################
+from operator import itemgetter
+from operator import attrgetter
+
+print("question 19")
+
+output = {'Name': '', 'Age':0, 'Score':0}
+ret_name = []
+
+while True:
+    name = input()
+    if not name:
+        break
+    ret_name.append(tuple(name.split(',')))
+
+    # for i in range(0, len(output)):
+    #     ret_name = sorted(output, key=itemgetter(output[i][0]))
+
+# print(sorted(output,key=itemgetter('Name')))
+print(ret_name)
+
+# # Initializing list of dictionaries
+# list = [{"name": "Nandini", "age": 20},
+#        {"name": "Manjeet", "age": 20},
+#        {"name": "Nikhil", "age": 19}]
+ 
+# # using sorted and itemgetter to print list sorted by age
+# print ("The list printed sorting by age: ")
+# print (sorted(list, key=itemgetter('age')))
