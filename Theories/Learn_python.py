@@ -173,7 +173,7 @@ some_var  # => 5
 
 # Accessing a previously unassigned variable is an exception.
 # See Control Flow to learn more about exception handling.
-some_unknown_var  # Raises a NameError
+# some_unknown_var  # Raises a NameError
 
 # if can be used as an expression
 # Equivalent of C's '?:' ternary operator
