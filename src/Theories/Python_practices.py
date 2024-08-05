@@ -673,17 +673,19 @@ print("question 19")
 output = {'Name': '', 'Age':0, 'Score':0}
 ret_name = []
 
-while True:
-    name = input()
-    if not name:
-        break
+def sort_function(name : str):
+    # while True:
+    #     name = input()
+    #     if not name:
+    #         break
     ret_name.append(tuple(name.split(',')))
 
-    # for i in range(0, len(output)):
-    #     ret_name = sorted(output, key=itemgetter(output[i][0]))
+            # for i in range(0, len(output)):
+            #     ret_name = sorted(output, key=itemgetter(output[i][0]))
 
-# print(sorted(output,key=itemgetter('Name')))
-print(ret_name)
+    # print(sorted(output,key=itemgetter('Name')))
+    print(ret_name)
+
 
 # # Initializing list of dictionaries
 # list = [{"name": "Nandini", "age": 20},
@@ -693,3 +695,12 @@ print(ret_name)
 # # using sorted and itemgetter to print list sorted by age
 # print ("The list printed sorting by age: ")
 # print (sorted(list, key=itemgetter('age')))
+
+
+
+
+def increment(x):
+    return x + 1
+
+def decrement(x):
+    return x - 1
