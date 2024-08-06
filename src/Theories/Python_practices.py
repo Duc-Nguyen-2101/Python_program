@@ -56,7 +56,7 @@ def fact(x):
         return 1
     return x * fact(x - 1)
 
-x=int(input())
+# x=int(input())
 ####################################################
 # Question 3
 # Level 1
@@ -76,12 +76,12 @@ x=int(input())
 # print(d)
 ####################################################
 
-# def dicGen(x):
-#     ret = {}
-#     for i in range(1, x+1):
-#         ret[i] = (i)*(i)
+def dicGen(x):
+    ret = {}
+    for i in range(1, x+1):
+        ret[i] = (i)*(i)
 
-#     return ret
+    return ret
 
 # x=int(input())
 # print(dicGen(x))
@@ -106,19 +106,20 @@ x=int(input())
 # print(l)
 # print(t)
 ####################################################
-# import random
+import random
 
-# def genList_Tup(x):
-#     ret_list = []
-#     ret_tuple = ()
+def genList_Tup(x):
+    ret_list = []
+    ret_tuple = ()
 
-#     for i in range(0,x):
-#         num = random.randrange(0,100,1)
-#         ret_list.append(num)
-#         ret_tuple = tuple(ret_list)
+    for i in range(0,x):
+        num = random.randrange(0,100,1)
+        ret_list.append(num)
+        ret_tuple = tuple(ret_list)
 
-#     print(ret_list)
-#     print(tuple(ret_tuple))
+    return ret_list, ret_tuple
+    # print(ret_list)
+    # print(tuple(ret_tuple))
 
 # x=int(input())
 # genList_Tup(x)

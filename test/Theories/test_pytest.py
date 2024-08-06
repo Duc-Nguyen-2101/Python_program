@@ -20,11 +20,16 @@ def test_check_division():
     else:
         assert False
 
-def test_fact(monkeypatch):
-    number_input = StringIO('23')
-    monkeypatch.setattr('sys.stdin', number_input)
-    assert fact(number_input) == 25852016738884976640000
+def test_fact():
+    assert fact(10) == 3628800
+
+def test_dicGen():
+    assert dicGen(5) == {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
     
+@pytest.fixture
+def test_genList_Tup():
+    assert genList_Tup(5) == [[1, 2, 3, 4, 5], (1, 2, 3, 4, 5)]
+
 def test_check_password(monkeypatch):
     password_input = StringIO("ABd1234@1\naF1#\n2w3E*\n2We3345\n")
     output_expected = 'ABd1234@1'
