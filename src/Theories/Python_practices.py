@@ -1,5 +1,19 @@
 # https://github.com/zhiwehu/Python-programming-exercises/blob/master/100%2B%20Python%20challenging%20programming%20exercises%20for%20Python%203.md
 
+####################################################
+# Simple function used to run pytest
+
+####################################################
+
+def increment(x):
+    x = input()
+    return int(x) + 1
+
+def decrement(x):
+    x = input()
+    return int(x) - 1
+
+
 
 ####################################################
 # Question 1
@@ -257,10 +271,12 @@ def arrayGen(X:int, Y:int):
 # print(','.join(items))
 ####################################################
 
-# input_str = input()
-# output_str=[str(x) for x in input_str.split(',')]
+def sort_str():
+    input_str = input()
+    output_str=[str(x) for x in input_str.split(',')]
+    str_sort = ','.join(sorted(output_str))
+    return str_sort
 
-# str_sort = sorted(output_str)
 # print(str_sort)
 
 ####################################################
@@ -287,7 +303,11 @@ def arrayGen(X:int, Y:int):
 #     print(sentence)
 ####################################################
 
-# input_str = input()
+def upper_str():
+    input_str = input()
+    ret = input_str.upper()
+    return ret
+
 # print(input_str.upper())
 
 ####################################################
@@ -308,16 +328,18 @@ def arrayGen(X:int, Y:int):
 # print(" ".join(sorted(list(set(words)))))
 ####################################################
 
-# input_str = input()
-# output_str = str(input_str).split(' ')
-# ret = []
+def removeDuplicate():
+    input_str = input()
+    output_str = str(input_str).split(' ')
+    ret = []
 
-# for i in range(0, len(output_str)-1):
-#     if output_str[i] not in ret:
-#         ret.append(output_str[i])
+    for i in range(0, len(output_str)):
+        if output_str[i] not in ret:
+            ret.append(output_str[i])
 
+    return ' '.join(sorted(ret))
 
-# print(' '.join(ret))
+# print(' '.join(sorted(ret)))
 
 ####################################################
 # Question 11
@@ -342,14 +364,17 @@ def arrayGen(X:int, Y:int):
 # print(','.join(value))
 ####################################################
 
-# num = input()
-# num_bit = [str(x) for x in num.split(',')]
-# ret = []
+def division_binary():
+    num = input()
+    num_bit = [str(x) for x in num.split(',')]
+    ret = []
 
-# for x in num_bit:
-#     value = int(x, 2)
-#     if not value%5:
-#         ret.append(x)
+    for x in num_bit:
+        value = int(x, 2)
+        if not value%5:
+            ret.append(x)
+
+    return (','.join(ret))
 
 # print(','.join(ret))
 
@@ -373,12 +398,14 @@ def arrayGen(X:int, Y:int):
 
 ####################################################
 
-# ret = []
-# for val in range(1000,3001):
-#     s = str(val)
-#     if (int(s[0])%2==0) and (int(s[1])%2==0) and (int(s[2])%2==0) and (int(s[3])%2==0):
-#         ret.append(str(val))
+def even_number():
+    ret = []
+    for val in range(1000,3001):
+        s = str(val)
+        if (int(s[0])%2==0) and (int(s[1])%2==0) and (int(s[2])%2==0) and (int(s[3])%2==0):
+            ret.append(str(val))
 
+    return (",".join(ret))
 # print(",".join(ret))
 
 
@@ -407,22 +434,27 @@ def arrayGen(X:int, Y:int):
 
 ####################################################
 
-# input_str = input()
-# s = [str(x) for x in input_str.split(' ')]
+def count_letters():
+    input_str = input()
+    s = [str(x) for x in input_str.split(' ')]
 
-# character_count = 0
-# digit_cout = 0
-# specical_count = 0
+    character_count = 0
+    digit_cout = 0
+    specical_count = 0
 
-# for characters in s:
-#     for x in range(0, len(characters)):
-#         if characters[x].isalpha():
-#             character_count += 1
-#         elif characters[x].isdigit():
-#             digit_cout += 1
-#         else:
-#             specical_count +=1
-                   
+    for characters in s:
+        for x in range(0, len(characters)):
+            if characters[x].isalpha():
+                character_count += 1
+            elif characters[x].isdigit():
+                digit_cout += 1
+            else:
+                specical_count +=1
+    print("LETTERS " + str(character_count), "DIGITS " + str(digit_cout), "SPECIAL CHARACTER " + str(specical_count))
+    return ("LETTERS " + str(character_count), "DIGITS " + str(digit_cout), "SPECIAL CHARACTER " + str(specical_count))
+
+# count_letters()
+
 # print("LETTERS " + str(character_count))
 # print("DIGITS " + str(digit_cout))
 # print("SPECIAL CHARACTER " + str(specical_count))
@@ -452,18 +484,19 @@ def arrayGen(X:int, Y:int):
 # print("LOWER CASE", d["LOWER CASE"])
 ####################################################
 
+def count_upper_lower():
+    s = input()
+    ret = {'UPPER CASE' : 0, 'LOWER CASE' : 0}
 
-# s = input()
-# ret = {'UPPER CASE' : 0, 'LOWER CASE' : 0}
+    for i in range(0, len(s)):
+        if s[i].isupper():
+            ret['UPPER CASE'] += 1
+        elif s[i].islower():
+            ret['LOWER CASE'] += 1
+        else:
+            None
 
-# print(len(s))
-# for i in range(0, len(s)):
-#     if s[i].isupper():
-#         ret['UPPER CASE'] += 1
-#     elif s[i].islower():
-#         ret['LOWER CASE'] += 1
-#     else:
-#         None
+    return ("UPPER " + str(ret["UPPER CASE"]), "LOWER " + str(ret["LOWER CASE"]))
 
 # print("UPPER", ret["UPPER CASE"])
 # print("LOWER", ret["LOWER CASE"])
@@ -486,14 +519,16 @@ def arrayGen(X:int, Y:int):
 # print(n1+n2+n3+n4)
 ####################################################
 
-# num = input()
-# ret = 0
-# a_s = num 
-# aa_s = num * 2
-# aaa_s = num * 3
-# aaaa_s = num * 4
+def sum_digit():
+    num = input()
+    ret = 0
+    a_s = num 
+    aa_s = num * 2
+    aaa_s = num * 3
+    aaaa_s = num * 4
 
-# ret = int(a_s) + int(aa_s) + int(aaa_s) + int(aaaa_s)
+    ret = int(a_s) + int(aa_s) + int(aaa_s) + int(aaaa_s)
+    return ret
 
 # print(ret)
 
@@ -516,10 +551,12 @@ def arrayGen(X:int, Y:int):
 # print(",".join(numbers))
 ####################################################
 
-# s = input()
-# output_str = [str(x) for x in s.split(',') if int(x) % 2]     
-# print(",".join(output_str))
-# print(output_str)
+def square_odd():
+    s = input()
+    output_str = [str(x) for x in s.split(',') if int(x) % 2]    
+    return (",".join(output_str)) 
+    # print(",".join(output_str))
+    # print(output_str)
 
 ####################################################
 # Question 17
@@ -692,11 +729,3 @@ def check_password():
 
 # sort_function()
 
-
-def increment(x):
-    x = input()
-    return int(x) + 1
-
-def decrement(x):
-    x = input()
-    return int(x) - 1

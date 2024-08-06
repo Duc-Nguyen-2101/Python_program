@@ -3,6 +3,13 @@ from src.Theories.Python_practices import *
 from io import StringIO
 import random
 
+
+
+
+####################################################
+# Simple function used to run pytest
+
+####################################################
 def test_increment(monkeypatch):
     number_input = StringIO('123\n')
     monkeypatch.setattr('sys.stdin', number_input)
@@ -12,6 +19,10 @@ def test_decrement(monkeypatch):
     number_input = StringIO('123')
     monkeypatch.setattr('sys.stdin', number_input)
     assert decrement(number_input) == 122
+
+
+
+
 
 ####################################################
 # Question 1
@@ -114,12 +125,140 @@ def test_arrGen():
     assert arrayGen(3,5) == [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8]]
 
 
+####################################################
+# Question 8
+# Level 2
+
+# Question: Write a program that accepts a comma separated sequence of words as input and prints the words in a comma-separated sequence 
+# after sorting them alphabetically. Suppose the following input is supplied to the program: without,hello,bag,world 
+# Then, the output should be: bag,hello,without,world
+####################################################
+def test_sortStr(monkeypatch):
+    input_str = StringIO('without,hello,bag,world\n')
+    expected_output = 'bag,hello,without,world'
+    monkeypatch.setattr('sys.stdin', input_str)
+    assert sort_str() == expected_output
+
+
+####################################################
+# Question 9
+# Level 2
+
+# Question£º Write a program that accepts sequence of lines as input and prints the lines after making all characters in the sentence capitalized. 
+# Suppose the following input is supplied to the program: Hello world Practice makes perfect 
+# Then, the output should be: HELLO WORLD PRACTICE MAKES PERFECT
+####################################################
+
+def test_upperStr(monkeypatch):
+    input_str = StringIO("hello")
+    expected_output = 'HELLO'
+    monkeypatch.setattr('sys.stdin', input_str)
+    assert upper_str() == expected_output
+
+
+####################################################
+# Question 10
+# Level 2
+
+# Question: Write a program that accepts a sequence of whitespace separated words as input 
+# and prints the words after removing all duplicate words and sorting them alphanumerically. 
+# Suppose the following input is supplied to the program: hello world and practice makes perfect and hello world again 
+# Then, the output should be: again and hello makes perfect practice world
+####################################################
+def test_removeDuplicate(monkeypatch):
+    input_str = StringIO('hello world and practice makes perfect and hello world again\n')
+    expected_output = 'again and hello makes perfect practice world'
+    monkeypatch.setattr('sys.stdin', input_str)
+    assert removeDuplicate() == expected_output
+
+
+####################################################
+# Question 11
+# Level 2
+
+# Question: Write a program which accepts a sequence of comma separated 4 digit binary numbers as its input and 
+# then check whether they are divisible by 5 or not. 
+# The numbers that are divisible by 5 are to be printed in a comma separated sequence. 
+# Example: 0100,0011,1010,1001 Then the output should be: 1010 
+# Notes: Assume the data is input by console.
+####################################################
+def test_division_binary(monkeypatch):
+    input_str = StringIO('0100,0011,1010,1001\n')
+    expected_output = '1010'
+    monkeypatch.setattr('sys.stdin', input_str)
+    assert division_binary() == expected_output
+
+
+####################################################
+# Question 12
+# Level 2
+
+# Question: Write a program, which will find all such numbers between 1000 and 3000 (both included) such that each digit of the number is an even number. 
+# The numbers obtained should be printed in a comma-separated sequence on a single line.
+####################################################
+def test_evenNumber():
+    assert '2000' in even_number()
+
+
+####################################################
+# Question 13
+# Level 2
+
+# Question: Write a program that accepts a sentence and calculate the number of letters and digits. 
+# Suppose the following input is supplied to the program: hello world! 123 
+# Then, the output should be: LETTERS 10 DIGITS 3
+####################################################
+def test_countLetter(monkeypatch):
+    input_str = StringIO('hello world! 123\n')
+    expected_output = ('LETTERS 10', 'DIGITS 3', 'SPECIAL CHARACTER 1')
+    monkeypatch.setattr('sys.stdin', input_str)
+    assert count_letters() == expected_output
 
 
 
+####################################################
+# Question 14
+# Level 2
+
+# Question: Write a program that accepts a sentence and calculate the number of upper case letters and lower case letters. 
+# Suppose the following input is supplied to the program: Hello world! 
+# Then, the output should be: UPPER CASE 1 LOWER CASE 9
+####################################################
+
+def test_countUpLowCase(monkeypatch):
+    input_str = StringIO('Hello world!\n')
+    expected_output = ('UPPER 1', 'LOWER 9')
+    monkeypatch.setattr('sys.stdin', input_str)
+    assert count_upper_lower() == expected_output
 
 
+####################################################
+# Question 15
+# Level 2
 
+# Question: Write a program that computes the value of a+aa+aaa+aaaa with a given digit as the value of a. 
+# Suppose the following input is supplied to the program: 9 Then, the output should be: 11106
+####################################################
+def test_sum_digit(monkeypatch):
+    input_str = StringIO("9")
+    expected_output = 11106
+    monkeypatch.setattr("sys.stdin", input_str)
+    assert sum_digit() == expected_output
+
+
+####################################################
+# Question 16
+# Level 2
+
+# Question: Use a list comprehension to square each odd number in a list. The list is input by a sequence of comma-separated numbers. 
+# Suppose the following input is supplied to the program: 1,2,3,4,5,6,7,8,9 
+# Then, the output should be: 1,3,5,7,9
+####################################################
+def test_squareOdd(monkeypatch):
+    input_str = StringIO("1,2,3,4,5,6,7,8,9")
+    expected_output = ('1,3,5,7,9')
+    monkeypatch.setattr("sys.stdin", input_str)
+    assert square_odd() == expected_output
 
 
 
@@ -142,20 +281,25 @@ def test_arrGen():
 # Example If the following passwords are given as input to the program: "ABd1234@1","aF1#","2w3E*","2We3345"
 # Then, the output of the program should be: "ABd1234@1"
 ####################################################
-def test_check_password(monkeypatch):
-    password_input = StringIO("ABd1234@1\naF1#\n2w3E*\n2We3345\n")
-    output_expected = 'ABd1234@1'
-    monkeypatch.setattr('sys.stdin', password_input)
-    assert check_password() == output_expected
+class TestClass:
+    def test_check_password_1(self, monkeypatch):
+        password_input = StringIO("ABd1234@1\naF1#\n2w3E*\n2We3345\n")
+        output_expected = 'ABd1234@1'
+        monkeypatch.setattr('sys.stdin', password_input)
+        assert check_password() == output_expected
+    
 
+    def test_check_password_2(self, monkeypatch):
+        password_input = StringIO("aF1#\n2w3E*\n2We3345\n")
+        output_expected = None
+        monkeypatch.setattr('sys.stdin', password_input)
+        assert check_password() == output_expected
 
-
-
-
-
-
-
-
+    def test_check_password_3(self, monkeypatch):
+        password_input = StringIO("ABd4@\n2w3E*\n2We3345\n")
+        output_expected = None
+        monkeypatch.setattr('sys.stdin', password_input)
+        assert check_password() == output_expected
 
 
 ####################################################
