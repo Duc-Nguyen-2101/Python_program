@@ -261,6 +261,24 @@ def test_squareOdd(monkeypatch):
     assert square_odd() == expected_output
 
 
+####################################################
+# Question 17
+# Level 2
+
+# Question: Write a program that computes the net amount of a bank account based a transaction log from console input. 
+# The transaction log format is shown as following: D 100 W 200
+# D means deposit while W means withdrawal. 
+# Suppose the following input is supplied to the program: D 300 D 300 W 200 D 100 
+# Then, the output should be: 500
+
+# NOTE: Assume in real life when the user enter amount once for each deposit and withdraw
+# Example: 
+#       1st: Deposit 100 - Total 100
+#       2nd: Deposit 100 - Total 200
+#       3rd: Withdraw 200 - Total 0
+####################################################
+def test_bank_account(monkeypatch):
+    
 
 ####################################################
 # Question 18
@@ -312,9 +330,8 @@ class TestClass:
 # If the following tuples are given as input to the program: Tom,19,80 John,20,90 Jony,17,91 Jony,17,93 Json,21,85 
 # Then, the output of the program should be: [('John', '20', '90'), ('Jony', '17', '91'), ('Jony', '17', '93'), ('Json', '21', '85'), ('Tom', '19', '80')]
 ####################################################
-@pytest.fixture
 def test_sort_function(monkeypatch):
-    input_str = StringIO('Tom,19,80\nJohn,20,90\nBob,17,91\nJony,17,93\nAlex,21,85\n')
+    input_str = StringIO('Tom,19,80\nJohn,20,90\nBob,17,91\nJony,17,93\nAlex,21,85\n\n')
     expected_output = [
         ('Alex','21','85'),
         ('Bob','17','91'),

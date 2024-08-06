@@ -595,19 +595,24 @@ def square_odd():
 #       3rd: Withdraw 200 - Total 0
 ####################################################
 
-# ret = 0
-# while True:
-#     log = input()
-#     if not log:
-#         break
-#     values = log.split(' ')
-#     if values[0] == 'D':
-#         ret += int(values[1])
-#     elif values[0] == 'W':
-#         ret -= int(values[1])
-#     else:
-#         pass
+def bank_account():
+    ret = 0
+    while True:
+        log = input()
+        if not log:
+            break
+        values = log.split(' ')
+        if values[0] == 'D':
+            ret += int(values[1])
+        elif values[0] == 'W':
+            ret -= int(values[1])
+        else:
+            pass
+    
+    print(ret)
+    return ret
 
+bank_account()
 # print(ret)
 
 
@@ -707,25 +712,25 @@ def check_password():
 
 # print(sorted(l, key=itemgetter(0,1,2)))
 ####################################################
-# from operator import itemgetter
-# from operator import attrgetter
+from operator import itemgetter
+from operator import attrgetter
 
-# print("question 19")
+print("question 19")
 
-# # output = {'Name': '', 'Age':0, 'Score':0}
-# ret_name = []
+# output = {'Name': '', 'Age':0, 'Score':0}
+ret_name = []
 
-# def sort_function():
-#     while True:
-#         name = input()
-#         if not name:
-#             break
+def sort_function():
+    while True:
+        name = input()
+        if not name:
+            break
 
-#         ret_name.append(tuple(name.split(',')))
+        ret_name.append(tuple(name.split(',')))
 
-#     # print(sorted(ret_name,key=itemgetter(0,1,2)))
-#     sorted_names = sorted(ret_name,key=itemgetter(0,1,2))
-#     return sorted_names
+    # print(sorted(ret_name,key=itemgetter(0,1,2)))
+    sorted_names = sorted(ret_name,key=itemgetter(0,1,2))
+    return sorted_names
 
 # sort_function()
 
