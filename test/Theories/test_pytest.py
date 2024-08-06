@@ -4,7 +4,27 @@ from io import StringIO
 import random
 
 
+def pytest_report_teststatus(report, config):
+    if report.when == 'call':
+        if report.skipped:
+            return 's', 'skipped'
+        if report.failed:
+            return 'F', 'failed'
+        if report.passed:
+            return '.', 'passed'
+    
+        
+def pytest_terminal_summary(terminalreporter, exitstatus, config):
+    terminalreporter.write_sep('=', 'test result')
+    for rep in terminalreporter.stats.values():
+        if rep.failed:
+            terminalreporter.write('FAILED %s: %s\n' % (rep.nodeid, rep.outcome))
+        if rep.passed:
+            terminalreporter.write('PASSED %s\n' % rep.nodeid)
+        if rep.skipped:
+            terminalreporter.write('SKIPPED %s\n' % rep.node)
 
+    terminalreporter.write_sep('=', 'end test result')
 
 ####################################################
 # Simple function used to run pytest
@@ -14,6 +34,7 @@ def test_increment(monkeypatch):
     number_input = StringIO('123\n')
     monkeypatch.setattr('sys.stdin', number_input)
     assert increment(number_input) == 124
+    assert True
 
 def test_decrement(monkeypatch):
     number_input = StringIO('123')
