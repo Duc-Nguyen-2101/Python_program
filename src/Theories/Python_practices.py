@@ -153,17 +153,17 @@ def genList_Tup(x):
 
 ####################################################
 
-# class Solution:
-#     def __init__(self) -> None:
-#         self.str = ""
-#         self.get_str = ""
+class Solution:
+    def __init__(self) -> None:
+        self.str = ""
+        self.get_str = ""
 
-#     def getString(self, get_str : str):
-#         self.get_str = get_str
+    def getString(self, get_str : str):
+        self.get_str = get_str
     
-#     def printString(self, str : str):
-#         self.str = str
-#         print(self.str.upper())
+    def printString(self, str : str):
+        self.str = str
+        print(self.str.upper())
 
 # string = input()
 # input = ""
@@ -192,14 +192,14 @@ def genList_Tup(x):
 # it should be assumed to be a console input.
 
 ####################################################
-# import math
+import math
 
-# def squareRoot(D : int):
-#     Q : int = 0
-#     C : int = 50
-#     H : int = 30
-#     Q = int(round((math.sqrt((2*C*D)/H)) , 0))
-#     return Q 
+def squareRoot(D : int):
+    Q : int = 0
+    C : int = 50
+    H : int = 30
+    Q = int(round((math.sqrt((2*C*D)/H)) , 0))
+    return Q 
 
 # print(squareRoot(100), squareRoot(150), squareRoot(180))
 
@@ -229,13 +229,13 @@ def genList_Tup(x):
 # print(multilist)
 ####################################################
 
-# def arrayGen(X:int, Y:int):
-#     ret = []
-#     for i in range(0,X):
-#         ret.append([])
-#         for j in range(0,Y):
-#             ret[i].append(i*j)
-#     return ret
+def arrayGen(X:int, Y:int):
+    ret = []
+    for i in range(0,X):
+        ret.append([])
+        for j in range(0,Y):
+            ret[i].append(i*j)
+    return ret
 
 # print(arrayGen(3,5))
 
