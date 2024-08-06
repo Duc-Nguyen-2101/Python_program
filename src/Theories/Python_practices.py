@@ -19,10 +19,13 @@
 
 # print(','.join(l))
 ####################################################
+ret = []
 
-# for i in range(2000,3201):
-#     if (i%7==0 )and (i%5!=0):
-#         print(i)
+def division_function():
+    for i in range(2000,3201):
+        if (i%7==0 )and (i%5!=0):
+            ret.append(str(i))
+    return ret
 
 
 ####################################################
@@ -47,15 +50,13 @@
 # x=int(input())
 # print(fact(x))
 ####################################################
-# def fact(x):
-#     if x == 0:
-#         return 1
-#     return x * fact(x - 1)
 
-# x=int(input())
-# print(fact(x))
+def fact(x):
+    if x == 0:
+        return 1
+    return x * fact(x - 1)
 
-
+x=int(input())
 ####################################################
 # Question 3
 # Level 1
@@ -618,30 +619,33 @@
 # print(",".join(value))
 ####################################################
 
-# ret = ''
-# password = input()       
-# size = len(password)
-# if size < 12 and size > 6:
-#     for c in password:
-#         if c in '$#@':
-#             ret = ret + c
-#             continue
-#         elif c.isalpha():
-#             if c.isupper() or c.islower():
-#                 ret = ret + c
-#                 continue
-#         elif c.isdigit():
-#             ret = ret + c
-#             continue
-#         else:
-#             pass
-# else:
-#     pass
+def check_password():
+    ret = ''  
+    password = input()     
+    size = len(password)
+    
+    if size < 12 and size > 6:
+        for c in password:
+            if c in '$#@':
+                ret = ret + c
+                continue
+            elif c.isalpha():
+                if c.isupper() or c.islower():
+                    ret = ret + c
+                    continue
+            elif c.isdigit():
+                ret = ret + c
+                continue
+            else:
+                pass
+    else:
+        pass
 
-# if size == len(ret):
-#     print(ret)
-# else:
-#     pass
+    if size == len(ret):
+        # print(ret)
+        return ret
+    else:
+        pass
 
 ####################################################
 # Question 19
@@ -665,42 +669,33 @@
 
 # print(sorted(l, key=itemgetter(0,1,2)))
 ####################################################
-from operator import itemgetter
-from operator import attrgetter
+# from operator import itemgetter
+# from operator import attrgetter
 
-print("question 19")
+# print("question 19")
 
-output = {'Name': '', 'Age':0, 'Score':0}
-ret_name = []
+# # output = {'Name': '', 'Age':0, 'Score':0}
+# ret_name = []
 
-def sort_function(name : str):
-    # while True:
-    #     name = input()
-    #     if not name:
-    #         break
-    ret_name.append(tuple(name.split(',')))
+# def sort_function():
+#     while True:
+#         name = input()
+#         if not name:
+#             break
 
-            # for i in range(0, len(output)):
-            #     ret_name = sorted(output, key=itemgetter(output[i][0]))
+#         ret_name.append(tuple(name.split(',')))
 
-    # print(sorted(output,key=itemgetter('Name')))
-    print(ret_name)
+#     # print(sorted(ret_name,key=itemgetter(0,1,2)))
+#     sorted_names = sorted(ret_name,key=itemgetter(0,1,2))
+#     return sorted_names
 
-
-# # Initializing list of dictionaries
-# list = [{"name": "Nandini", "age": 20},
-#        {"name": "Manjeet", "age": 20},
-#        {"name": "Nikhil", "age": 19}]
- 
-# # using sorted and itemgetter to print list sorted by age
-# print ("The list printed sorting by age: ")
-# print (sorted(list, key=itemgetter('age')))
-
-
+# sort_function()
 
 
 def increment(x):
-    return x + 1
+    x = input()
+    return int(x) + 1
 
 def decrement(x):
-    return x - 1
+    x = input()
+    return int(x) - 1
