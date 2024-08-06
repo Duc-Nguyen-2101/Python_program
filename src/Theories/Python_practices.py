@@ -609,10 +609,9 @@ def bank_account():
         else:
             pass
     
-    print(ret)
+    # print(ret)
     return ret
 
-bank_account()
 # print(ret)
 
 

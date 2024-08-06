@@ -278,7 +278,10 @@ def test_squareOdd(monkeypatch):
 #       3rd: Withdraw 200 - Total 0
 ####################################################
 def test_bank_account(monkeypatch):
-    
+    input_str = StringIO('D 300\nD 300\nW 200\nD 100\n\n')
+    expected_output = 500 # Replace with the actual expected result
+    monkeypatch.setattr('sys.stdin', input_str)
+    assert bank_account() == expected_output
 
 ####################################################
 # Question 18
@@ -340,7 +343,6 @@ def test_sort_function(monkeypatch):
         ('Tom','19','80')
     ]  # Replace with the actual expected result
     monkeypatch.setattr('sys.stdin', input_str)
-    # monkeypatch.setattr("builtins.input", lambda _: "Tom,19,80\nJohn,20,90\nBob,17,91\nJony,17,93\nAlex,21,85\n")
     assert sort_function() == expected_output
 
 
