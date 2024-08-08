@@ -595,6 +595,8 @@ def square_odd():
 #       3rd: Withdraw 200 - Total 0
 ####################################################
 
+print("question 17")
+
 def bank_account():
     ret = 0
     while True:
@@ -612,8 +614,74 @@ def bank_account():
     # print(ret)
     return ret
 
-# print(ret)
+# print(bank_account())
 
+
+
+
+# Upgrade version 
+def amount_cal(input_str : str, ret : int):
+    if input_str == "D" or input_str == "d":
+        amount = input("How much do you want to deposit: ")
+        if amount.isdigit():
+            ret += int(amount)
+        else:
+            # print("Invalid")
+            return None
+
+    elif input_str == "W" or input_str == "w":
+        amount = input("How much do you want to withdraw: ")
+        if amount.isdigit():
+            ret -= int(amount)
+        else:
+            # print("Invalid")
+            return None
+
+    return ret
+
+def mode():
+    input_str = input("Do you want deposit (D) or withdraw (W): ")
+    # while True:
+    if input_str.isalpha():
+        if input_str == "D" or input_str == "d":
+            print("Deposit")
+        elif input_str == "W" or input_str == "w":
+            print("Withdraw")
+        else:
+            # print("Invalid input")
+            return None
+    else:
+        return None
+    
+    return input_str
+
+def bank_account_2():
+    ret = 0
+    state = mode()   
+    ret = amount_cal(state, ret)
+
+    while True:
+        if state == None or ret == None:
+            break
+        else:
+            con = input("Do you want to continue (Y/N): ")
+            if con.isalpha():
+                if con == "Y" or con == "y":
+                    state = mode() 
+                    ret = amount_cal(state, ret)
+                elif con == "N" or con == "n":
+                    print("Thank you see you next time")
+                    break
+                else:
+                    print("Invalid")
+                    break
+            else:
+                break
+
+    return ret
+
+
+# print("Total:", bank_account_2())
 
 ####################################################
 

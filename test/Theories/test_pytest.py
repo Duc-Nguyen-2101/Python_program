@@ -43,8 +43,6 @@ def test_decrement(monkeypatch):
 
 
 
-
-
 ####################################################
 # Question 1
 # Level 1
@@ -304,6 +302,40 @@ def test_bank_account(monkeypatch):
     monkeypatch.setattr('sys.stdin', input_str)
     assert bank_account() == expected_output
 
+
+# Test upgrade version
+def test_mode(monkeypatch):
+    input_str = StringIO("D")
+    expected_output = "D"
+    monkeypatch.setattr("sys.stdin", input_str)
+    assert mode() == expected_output
+
+def test_amountCal(monkeypatch):
+    mode_input = StringIO("D")
+    amount_input = 1000
+    expected_output = 1000
+    monkeypatch.setattr("sys.stdin", mode_input)
+    assert amount_cal(mode_input, amount_input) == expected_output
+
+class TestGroup_Question17:
+    def test_bankAccount_1(self, monkeypatch):
+        test_input = StringIO("D\n1000\nN\n")
+        expected_output = 1000
+        monkeypatch.setattr("sys.stdin", test_input)
+        assert bank_account_2() == expected_output
+
+    def test_bankAccount_2(self, monkeypatch):
+        test_input = StringIO("D\n1000\nY\nW\n111\nN\n")
+        expected_output = 889
+        monkeypatch.setattr("sys.stdin", test_input)
+        assert bank_account_2() == expected_output
+
+    def test_bankAccount_3(self, monkeypatch):
+        test_input = StringIO("123\n")
+        expected_output = 0
+        monkeypatch.setattr("sys.stdin", test_input)
+        assert bank_account_2() == expected_output
+        
 ####################################################
 # Question 18
 # Level 3
@@ -323,14 +355,13 @@ def test_bank_account(monkeypatch):
 # Example If the following passwords are given as input to the program: "ABd1234@1","aF1#","2w3E*","2We3345"
 # Then, the output of the program should be: "ABd1234@1"
 ####################################################
-class TestClass:
+class TestGroup_Question18:
     def test_check_password_1(self, monkeypatch):
         password_input = StringIO("ABd1234@1\naF1#\n2w3E*\n2We3345\n")
         output_expected = 'ABd1234@1'
         monkeypatch.setattr('sys.stdin', password_input)
         assert check_password() == output_expected
     
-
     def test_check_password_2(self, monkeypatch):
         password_input = StringIO("aF1#\n2w3E*\n2We3345\n")
         output_expected = None
