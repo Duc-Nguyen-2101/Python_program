@@ -626,7 +626,6 @@ def amount_cal(input_str : str, ret : int):
         if amount.isdigit():
             ret += int(amount)
         else:
-            # print("Invalid")
             return None
 
     elif input_str == "W" or input_str == "w":
@@ -634,7 +633,6 @@ def amount_cal(input_str : str, ret : int):
         if amount.isdigit():
             ret -= int(amount)
         else:
-            # print("Invalid")
             return None
 
     return ret
@@ -648,7 +646,6 @@ def mode():
         elif input_str == "W" or input_str == "w":
             print("Withdraw")
         else:
-            # print("Invalid input")
             return None
     else:
         return None
@@ -677,11 +674,15 @@ def bank_account_2():
                     break
             else:
                 break
+    print("-------------------------------------")
+    if ret < 0:
+        print("You have insufficient fund")
+        return 0
+    else:
+        return ret
 
-    return ret
 
-
-# print("Total:", bank_account_2())
+print("Total:", bank_account_2())
 
 ####################################################
 
