@@ -302,7 +302,6 @@ def test_bank_account(monkeypatch):
     monkeypatch.setattr('sys.stdin', input_str)
     assert bank_account() == expected_output
 
-
 # Test upgrade version
 def test_mode(monkeypatch):
     input_str = StringIO("D")
@@ -398,4 +397,27 @@ def test_sort_function(monkeypatch):
     assert sort_function() == expected_output
 
 
-    
+
+
+####################################################
+# Question 20
+# Level 3
+
+# Question: Define a class with a generator which can iterate the numbers, which are divisible by 7, between a given range 0 and n.
+
+# Hints: Consider use yield
+
+# NOTE: generator is a function that returns an object (iterator) which we can iterate over (one value at a time).
+#       yield is a keyword that is used like return, except the function will return a generator.
+# 
+# 
+#       yield is like a return but it can return an object. On the other hand, it can be consider as a list to hold data
+
+####################################################
+
+def test_generator(monkeypatch):
+    number = StringIO("8\n")
+    monkeypatch.setattr('sys.stdin', number)
+    output_expected = [0,7]
+    assert main() == output_expected
+        

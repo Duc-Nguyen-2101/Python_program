@@ -595,8 +595,6 @@ def square_odd():
 #       3rd: Withdraw 200 - Total 0
 ####################################################
 
-print("question 17")
-
 def bank_account():
     ret = 0
     while True:
@@ -682,7 +680,7 @@ def bank_account_2():
         return ret
 
 
-print("Total:", bank_account_2())
+# print("Total:", bank_account_2())
 
 ####################################################
 
@@ -783,8 +781,6 @@ def check_password():
 from operator import itemgetter
 from operator import attrgetter
 
-print("question 19")
-
 # output = {'Name': '', 'Age':0, 'Score':0}
 ret_name = []
 
@@ -802,3 +798,96 @@ def sort_function():
 
 # sort_function()
 
+
+####################################################
+# Question 20
+# Level 3
+
+# Question: Define a class with a generator which can iterate the numbers, which are divisible by 7, between a given range 0 and n.
+
+# Hints: Consider use yield
+
+# NOTE: generator is a function that returns an object (iterator) which we can iterate over (one value at a time).
+#       yield is a keyword that is used like return, except the function will return a generator.
+# 
+# 
+#       yield is like a return but it can return an object. On the other hand, it can be consider as a list to hold data
+
+
+# Solution:
+# def putNumbers(n):
+#     i = 0
+#     while i<n:
+#         j=i
+#         i=i+1
+#         if j%7==0:
+#             yield j
+
+# for i in reverse(100):
+#     print(i)
+####################################################
+
+def generator_fucntion():
+    n = input()
+    for i in range(0, int(n)):
+        if i%7==0:
+            yield i
+
+def main():
+    ret = []
+    for i in generator_fucntion():
+        ret.append(i)
+
+    return ret
+
+
+####################################################
+
+# Question 21
+# Level 3
+
+# Question A robot moves in a plane starting from the original point (0,0). The robot can move toward UP, DOWN, LEFT and RIGHT with a given steps. 
+# The trace of robot movement is shown as the following: UP 5 DOWN 3 LEFT 3 RIGHT 2 ¡­ The numbers after the direction are steps. 
+# Please write a program to compute the distance from current position after a sequence of movement and original point. 
+# If the distance is a float, then just print the nearest integer. Example: If the following tuples are given as input to the program: UP 5 DOWN 3 LEFT 3 RIGHT 2 
+# Then, the output of the program should be: 2
+
+# Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# Solution:
+# import math
+# pos = [0,0]
+# while True:
+#     s = input()
+#     if not s:
+#         break
+#     movement = s.split(" ")
+#     direction = movement[0]
+#     steps = int(movement[1])
+#     if direction=="UP":
+#         pos[0]+=steps
+#     elif direction=="DOWN":
+#         pos[0]-=steps
+#     elif direction=="LEFT":
+#         pos[1]-=steps
+#     elif direction=="RIGHT":
+#         pos[1]+=steps
+#     else:
+#         pass
+
+# print(int(round(math.sqrt(pos[1]**2+pos[0]**2))))
+####################################################
+
+# def distance_cal():
+#     while True:
+#         movement_input = input()
+        
+#         if not movement_input:
+#             break
+        
+#         ret = movement_input.split(' ')
+
+#     print(ret)
+
+
+# print(distance_cal())
